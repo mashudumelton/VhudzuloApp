@@ -1,0 +1,30 @@
+page-data-modal {
+    .main-view{
+        background-color: rgba(0, 0, 0, 0.589);
+    }
+
+    .myModal {
+        background-color: #eee;
+        color: Black;
+        position: absolute !important;
+        width: 85% !important;
+        height: 80% !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: auto !important;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 10px !important;
+        border-color: black;
+        overflow: hidden !important;
+        padding: 10px;
+
+        .button {
+            width: 120px;
+            margin: auto;
+        }
+     }
+    
+}

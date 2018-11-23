@@ -1,0 +1,43 @@
+page-authentication {
+
+
+    .swiper-pagination-bullet-active {
+        background: red;
+        background-color: red;
+        }
+
+    .welcome-wrapper{
+        display: grid;
+        grid-template-rows: auto 170px;
+        height: 100%;
+
+        .one{
+            background: #eee;
+            padding: 15px;
+        }
+        .two{
+            padding: 8px;
+            
+            .row{
+                bottom: 0;
+                left: 0;
+                right: 0;
+                position: absolute;
+                width: 100%;
+                padding: 2px;
+
+                .col{
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    padding: 0px 1px 0px 0px ;
+                }
+            }
+        }
+    }
+
+    // .swiper-pagination-bullet-active {
+    //     background: red;
+    //     background-color: white;
+    //     }
+}

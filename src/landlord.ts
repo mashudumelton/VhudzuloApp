@@ -1,0 +1,12 @@
+
+
+
+
+
+
+export class landlord{
+
+    getMyLocation(){
+        
+    }
+}

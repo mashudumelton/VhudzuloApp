@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { DataModalPage } from '../data-modal/data-modal';
 
 /**
  * Generated class for the HomePage page.
@@ -15,11 +16,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  myParam = '';
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
-  }
+  constructor(public modalCtrl: ModalController,public navCtrl: NavController, public navParams: NavParams) {}
 
+  openBasicModal() {
+    let myModal = this.modalCtrl.create(DataModalPage);
+    myModal.present();
+  }
+  openModalWithParams() {
+    let myModal = this.modalCtrl.create(DataModalPage, { 'myParam': this.myParam }, {cssClass: 'select-modal' });
+    myModal.present();
+  }
 }
