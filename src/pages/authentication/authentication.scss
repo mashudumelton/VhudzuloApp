@@ -1,5 +1,16 @@
 page-authentication {
 
+    ion-slide {
+       background-color: transparent;
+      }
+   
+      ion-slide img {
+        height: 100vh !important;
+        width: auto !important;
+      }
+
+
+
 
     .swiper-pagination-bullet-active {
         background: red;
@@ -14,7 +25,14 @@ page-authentication {
         .one{
             background: #eee;
             padding: 15px;
+
+            // .img{
+            //     widows: 100%;
+            //      height:auto;
+            //    }
         }
+
+   
         .two{
             padding: 8px;
             
@@ -34,10 +52,18 @@ page-authentication {
                 }
             }
         }
+      
+    }
+
+    #pic2{
+        height: 100%;
+        width: 100%;
+        background-image: url(../../assets/imgs/2.jpg);
     }
 
     // .swiper-pagination-bullet-active {
     //     background: red;
     //     background-color: white;
     //     }
+
 }

@@ -1,0 +1,118 @@
+<!--
+  Generated template for the LandlordsignupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title >Landlord</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="person" (ngSubmit)="onSubmit(person)">
+      <ion-item> <ion-icon name="person" item-start></ion-icon>
+        <ion-label floating>FullName</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+
+      <div *ngIf = "person.controls.name.invalid && person.controls.name.dirty">
+        <p>Please enter Your Full Name</p>
+      </div>
+  
+   
+
+      <ion-item>   <ion-icon name="person-add" item-start></ion-icon>
+          <ion-label floating>Username</ion-label>
+          <ion-input formControlName="username" type="text"></ion-input>
+        </ion-item>
+    
+        <div *ngIf = "person.controls.username.invalid && person.controls.username.dirty">
+          <p>Please enter Username</p>
+        </div>
+
+  
+      <ion-item>
+          <ion-icon name="transgender" item-start></ion-icon>
+        <ion-label floating>Gender</ion-label>
+        <ion-input formControlName="gender" type="text"></ion-input>
+      </ion-item>
+  
+      <div *ngIf = "person.controls.gender.invalid && person.controls.gender.dirty">
+        <p>Please enter Gender</p>
+      </div>
+
+      <ion-item>
+        
+        <ion-label floating>City</ion-label>
+        <ion-input formControlName="city" type="text"></ion-input>
+      </ion-item>
+  
+      <div *ngIf = "person.controls.city.invalid && person.controls.city.dirty">
+        <p>Please enter City</p>
+      </div>
+  
+
+
+      <ion-item>
+    
+        <ion-label floating>Address</ion-label>
+        <ion-input formControlName="address" type="text"></ion-input>
+      </ion-item>
+  
+      <div *ngIf = "person.controls.address.invalid && person.controls.address.dirty">
+        <p>Please enter City</p>
+      </div>
+
+
+
+
+      <ion-item>
+          <ion-icon name="contact" item-start></ion-icon> 
+          <ion-label floating>Contact</ion-label>
+          <ion-input formControlName="contact" type="number"></ion-input>
+        </ion-item>
+
+      <div *ngIf = "person.controls.contact.invalid && person.controls.contact.dirty">
+          <p>Please enter Your contact</p>
+        </div>
+
+        <ion-item>
+            <ion-icon name="mail" item-start></ion-icon>
+            <ion-label floating>Email</ion-label>
+            <ion-input formControlName="email" type="email"></ion-input>
+          </ion-item>
+  
+        <div *ngIf = "person.controls.email.invalid && person.controls.email.dirty">
+            <p>Please enter Your contact</p>
+          </div>
+ 
+
+
+          <ion-item>
+              <ion-icon name="unlock" item-start></ion-icon>
+              <ion-label floating>Password</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+    
+          <div *ngIf = "person.controls.password.invalid && person.controls.password.dirty">
+              <p>Please enter Your Password</p>
+            </div>
+
+            
+          <ion-item>
+              <ion-icon name="eye" item-start></ion-icon>
+              <ion-label floating>Confirm Password</ion-label>
+              <ion-input formControlName="confirmpassword" type="password"></ion-input>
+            </ion-item>
+    
+          <div *ngIf = "person.controls.confirmpassword.invalid && person.controls.confirmpassword.dirty">
+              <p>Please Confirm Your Password</p>
+            </div>
+
+      <button ion-button full type="submit" [disabled]="person.invalid">Register</button>
+    </form>
+  </ion-content>

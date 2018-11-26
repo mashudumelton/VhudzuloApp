@@ -3,16 +3,16 @@ page-welcome {
     .content{
         margin: 0;
         left: 0;
-
+        background-image: url(../../assets/imgs/welcome.PNG);
     }
     .welcome-wrapper{
         display: grid;
         grid-template-rows: auto 170px;
         height: 100%;
 
-        .one{
+        // .one{
 
-        }
+        // }
         .two{
             padding: 10px;
 
@@ -21,5 +21,9 @@ page-welcome {
                 width: 80%;
             }
         }
+    }
+    p{
+        text-align: center;
+        
     }
 }
