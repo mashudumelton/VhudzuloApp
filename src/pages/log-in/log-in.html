@@ -14,5 +14,41 @@
 
 
 <ion-content padding>
-  log in works..
-</ion-content>
+ 
+<form *ngIf="login" [formGroup]="login" (ngLogin)="submit()">
+
+    <ion-item><ion-icon name="at" item-start></ion-icon>
+      <ion-label></ion-label>
+      <ion-input formControlName="email"  placeholder="email"  type="text" [(ngModel)]="email"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="login.controls.email.invalid && login.controls.email.dirty">
+        <p>Please enter Email</p>
+  
+      </ion-item>
+  
+  
+  <ion-item>
+      <ion-icon name="lock"item-start></ion-icon>
+  <ion-label></ion-label>
+  <ion-input formControlName="password"   placeholder="password"  type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="login.controls.password.invalid && login.controls.password.dirty">
+  <p>Please enter Password</p>
+  
+  </ion-item>
+  
+  
+  
+  <div padding-horizontal>
+    <div class="form-error">{{loginError}}</div>
+    <button ion-button round outline (click)="submit()" [disabled]="login.invalid" >Login</button>
+  
+  
+    <ion-row>
+        <button ion-button  clear (click) = "forgotpassword()" style="color:blue">Forgot password?</button>
+      </ion-row>
+  </div>
+  </form>
+  
+  
+  </ion-content>

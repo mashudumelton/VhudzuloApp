@@ -1,9 +1,14 @@
 page-welcome {
 
     .content{
-        margin: 0;
-        left: 0;
+        // margin: 0;
+        // left: 0;
         background-image: url(../../assets/imgs/welcome.PNG);
+        background-repeat: no-repeat;
+         background-size:cover;
+    //    display: block;
+        // margin-left: auto;
+        // margin-right: auto;
     }
     .welcome-wrapper{
         display: grid;

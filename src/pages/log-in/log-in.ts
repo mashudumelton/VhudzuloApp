@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { FormGroup, FormBuilder, Validators } from '../../../node_modules/@angular/forms';
 /**
  * Generated class for the LogInPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+
 
 @IonicPage()
 @Component({
@@ -15,11 +16,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LogInPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  email;
+   password;
+   human={
+    
+     email:"",
+     password:"",
+   }
+   login: FormGroup;
+   loginError: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fb : FormBuilder) {
+    this.login = this.fb.group({
+    
+      email:['',[Validators.required]],
+      password:['',[Validators.required]]
+    });
+ 
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LogInPage');
+    console.log('ionViewDidLoad LoginPage');
   }
 
+  forgotpassword(){
+  this.navCtrl.push("ResetPage");
+}
 }

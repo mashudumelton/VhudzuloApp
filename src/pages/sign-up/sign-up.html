@@ -1,0 +1,121 @@
+<!--
+  Generated template for the SignUpPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title style="text-align: center">SignUp</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+
+    <!-- <ion-list>
+
+        <div>
+            <div float-left class="my-checkbox">
+        <ion-item>
+          <ion-label>Student</ion-label>
+          <ion-checkbox [(ngModel)]="student"></ion-checkbox>
+        </ion-item>
+            </div>
+      
+            <div float-right class="my-checkbox">
+        <ion-item>
+          <ion-label>Landlord</ion-label>
+          <ion-checkbox [(ngModel)]="landlord"></ion-checkbox>
+        </ion-item>
+            </div>
+
+            </div>
+      
+      </ion-list> -->
+
+      <!-- <div class="testbox"> -->
+     
+  
+    <form [formGroup]="dzulo">
+
+
+        <div class="accounttype">
+            <input type="radio" value="None" id="radioOne" name="account" checked/>
+            <label for="radioOne" class="radio" chec>Student</label>
+            <input type="radio" value="None" id="radioTwo" name="account" />
+            <label for="radioTwo" class="radio">Landlord</label>
+          </div>
+  
+        
+         <br> <br>
+        <ion-item  >
+            <ion-icon id="icon" name="card" item-start></ion-icon>
+            <ion-label>StudentNumber</ion-label>
+            <ion-input type= "number" formControlName= "studNo">StudentNo</ion-input>
+ 
+          </ion-item>
+
+          <br> <br>
+
+        <ion-item  >
+          <ion-icon id="icon" name="person" item-start></ion-icon>
+           <ion-label>FullName</ion-label>
+           <ion-input type= "name" formControlName= "username">FullNames</ion-input>
+
+         </ion-item>
+
+         <br> <br>
+         
+        <ion-item class="dev">
+            <ion-icon id="icon" name="calendar" item-start></ion-icon>
+           <ion-label >DateOfBirth</ion-label>
+           <ion-input type= "dob" formControlName= "dof">DOF</ion-input>
+         </ion-item>
+
+         <br> <br>
+
+        <ion-item class="dev">
+            <ion-icon id="icon" name="transgender" item-start></ion-icon>
+           <ion-label >Gender</ion-label>
+           <ion-input type= "gender" formControlName= "gender">gender</ion-input>
+         </ion-item>
+
+         <br> <br>
+        <ion-item class="dev">
+            <ion-icon id="icon" name="contact" item-start></ion-icon>
+            <ion-label >Contact</ion-label>
+            <ion-input type= "number" formControlName= "contactNo">ContNo</ion-input>
+          </ion-item>
+   
+         <br> <br>
+
+       <ion-item class="dev">
+          <ion-icon id="icon" name="mail" item-start></ion-icon>
+           <ion-label>Email</ion-label>
+           <ion-input type= "email" formControlName= "email">email</ion-input>
+         </ion-item>
+
+         <br> <br>
+
+         <ion-item class="dev">
+            <ion-icon  id="icon" name="unlock" item-start></ion-icon>
+             <ion-label>Password</ion-label>
+             <ion-input type= "number" formControlName= "password"> password</ion-input>
+         </ion-item>
+
+           <br> <br>
+
+          
+
+
+
+         <button ion-button (click)="SignIn()" class="btnSign" >Register</button>
+
+   </form> 
+  <!-- </div> -->
+</ion-content>

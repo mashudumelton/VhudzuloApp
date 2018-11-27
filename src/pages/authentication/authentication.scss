@@ -1,40 +1,29 @@
 page-authentication {
 
-    ion-slide {
-       background-color: transparent;
-      }
-   
-      ion-slide img {
-        height: 100vh !important;
-        width: auto !important;
-      }
 
-
-
-
-    .swiper-pagination-bullet-active {
-        background: red;
-        background-color: red;
-        }
+    // .swiper-pagination-bullet-active {
+    //     background: red;
+    //     background-color: red;
+    //     }
 
     .welcome-wrapper{
-        display: grid;
-        grid-template-rows: auto 170px;
-        height: 100%;
+        // display: grid;
+        // grid-template-rows: auto 170px;
+        // height: 100%;
 
-        .one{
-            background: #eee;
-            padding: 15px;
+        // .one{
+        //     background: url(2.jpg) no-repeat center fixed; 
+        //     background-size: cover;
+        //     background: #eee;
+        //     padding: 15px;
+        //     width: 100%;
+            
+        
+            
 
-            // .img{
-            //     widows: 100%;
-            //      height:auto;
-            //    }
-        }
-
-   
+        // }
         .two{
-            padding: 8px;
+            // padding: 8px;
             
             .row{
                 bottom: 0;
@@ -52,18 +41,10 @@ page-authentication {
                 }
             }
         }
-      
-    }
-
-    #pic2{
-        height: 100%;
-        width: 100%;
-        background-image: url(../../assets/imgs/2.jpg);
     }
 
     // .swiper-pagination-bullet-active {
     //     background: red;
     //     background-color: white;
     //     }
-
 }

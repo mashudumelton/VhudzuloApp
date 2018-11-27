@@ -31,5 +31,8 @@ export class AuthenticationPage {
   logInBtnClicked(){
     this.navCtrl.push("LogInPage");
   }
+  Sign(){
+    this.navCtrl.push("SignUpPage");
+  }
 
 }
