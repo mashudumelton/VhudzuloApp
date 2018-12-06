@@ -14,10 +14,13 @@
 
 
 <ion-content padding>
+  
  
 <form *ngIf="login" [formGroup]="login" (ngLogin)="submit()">
 
-    <ion-item><ion-icon name="at" item-start></ion-icon>
+    <ion-item>
+      <!-- <ion-icon name="at" item-start></ion-icon> -->
+      <ion-icon id="icon" name="mail" item-start></ion-icon>
       <ion-label></ion-label>
       <ion-input formControlName="email"  placeholder="email"  type="text" [(ngModel)]="email"></ion-input>
     </ion-item>
@@ -28,7 +31,7 @@
   
   
   <ion-item>
-      <ion-icon name="lock"item-start></ion-icon>
+      <ion-icon id="icon" name="lock" item-start></ion-icon>
   <ion-label></ion-label>
   <ion-input formControlName="password"   placeholder="password"  type="password" [(ngModel)]="password"></ion-input>
   </ion-item>

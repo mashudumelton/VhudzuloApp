@@ -7,7 +7,7 @@
       <ion-slides autoplay="5000" loop="true" speed="3000" pager = "true">
 
           <ion-slide>
-            <img src="../../assets/imgs/haz2.jpg" style="height:600px; width: 500px;" >
+            <img src="../../assets/imgs/haz2.jpg"  style="height:600px; width: 500px;" >
             <!-- <h1>Slide 1</h1> -->
         </ion-slide>
           <ion-slide>
@@ -20,6 +20,18 @@
           </ion-slide>
         </ion-slides>
 
+<div id="start">
+        <ion-row>
+          <ion-col>
+              <button ion-button block  outline align-self-stretch (click)="logInBtnClicked()">Log In</button>
+          </ion-col>
+          <ion-col>
+              <button ion-button block  outline align-self-stretch (click)="Sign()">Sign Up</button>
+          </ion-col>
+        </ion-row>
+
+      </div>
+<!-- 
   <ion-row>
     <ion-col>
         <button ion-button block  outline align-self-stretch (click)="logInBtnClicked()">Log In</button>
@@ -27,7 +39,9 @@
     <ion-col>
         <button ion-button block  outline align-self-stretch (click)="Sign()">Sign Up</button>
     </ion-col>
-  </ion-row>
+  </ion-row> -->
 
 
 </ion-content>
+
+

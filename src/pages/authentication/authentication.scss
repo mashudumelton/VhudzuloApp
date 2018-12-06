@@ -1,27 +1,26 @@
 page-authentication {
+    #start{
+        position: absolute;
+        bottom: 50px;
+        left: 40px;
+        width: calc(100% - 80px);
+        // border: 2px solid #1cd8d2;
+        // color: #1cd8d2;
+        background: transparent;
+        font-size: 13px;
+        //background: linear-gradient(to right, #4ac29a, #bdfff3); 
+        box-shadow: none;
+        z-index: 9999;
+        border-radius: 20px !important;
+        margin-top: 30px !important;
+        padding: 0 20px;
+    
+    }
 
+  
+  
 
-    // .swiper-pagination-bullet-active {
-    //     background: red;
-    //     background-color: red;
-    //     }
-
-    .welcome-wrapper{
-        // display: grid;
-        // grid-template-rows: auto 170px;
-        // height: 100%;
-
-        // .one{
-        //     background: url(2.jpg) no-repeat center fixed; 
-        //     background-size: cover;
-        //     background: #eee;
-        //     padding: 15px;
-        //     width: 100%;
-            
-        
-            
-
-        // }
+ 
         .two{
             // padding: 8px;
             
@@ -43,8 +42,5 @@ page-authentication {
         }
     }
 
-    // .swiper-pagination-bullet-active {
-    //     background: red;
-    //     background-color: white;
-    //     }
-}
+
+

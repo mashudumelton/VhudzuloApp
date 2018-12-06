@@ -1,0 +1,42 @@
+<!-- <ion-content id = "feed">
+  <ion-fab id="nav">
+    <button ion-fab style="display: none;"></button>
+    <ion-row>
+   
+      <ion-col  col-2>
+          <ion-searchbar
+          [(ngModel)]="myInput"
+          [showCancelButton]="True"
+          (search)="search($event)"
+          (ionClear)="onClear($event)"
+          (ionCancel)="onCancel($event)">
+        </ion-searchbar>
+      </ion-col>
+ 
+    </ion-row>
+  </ion-fab>
+  <div id="activity">
+    Activity feed <small>{{date | date:'yyyy-MM-dd'}}</small>
+  </div> 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf= "searchResults.length > 0">
+    <button ion-button id = "resetSearch" (click) = "retrieveData();">clear search</button>  
+  </div>
+  <div id = "main"> 
+    <ion-card  *ngFor = "let item of items; let i = index" class = "cards">
+      <ion-slides pager>
+        <ion-slide *ngFor = "let slideUrls of imgObjUri[i].imageUri; let j = index">
+          <div class="img-ph">
+            <img class = "img" src="{{slideUrls}}"/>
+          </div>
+        </ion-slide>
+      </ion-slides>
+  
+    </ion-card>
+  </div>
+
+
+</ion-content> -->
+<p>Feed</p>

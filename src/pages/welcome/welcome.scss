@@ -1,34 +1,26 @@
 page-welcome {
 
-    .content{
-        // margin: 0;
-        // left: 0;
-        background-image: url(../../assets/imgs/welcome.PNG);
-        background-repeat: no-repeat;
-         background-size:cover;
-    //    display: block;
-        // margin-left: auto;
-        // margin-right: auto;
-    }
-    .welcome-wrapper{
+    .wrapper-welcome{
         display: grid;
-        grid-template-rows: auto 170px;
         height: 100%;
+        grid-template-rows: 60% auto;
+         background-color: darkslategrey;
+    
+        .top-view{
+            // background-color: blue;
+        }
 
-        // .one{
-
-        // }
-        .two{
+        .bottom-view{
+            margin: auto;
+            text-align: center;
+            color: goldenrod;
+            width: 100%;
             padding: 10px;
-
+            
             .button{
-                margin: auto;
                 width: 80%;
+                background-color: goldenrod;
             }
         }
-    }
-    p{
-        text-align: center;
-        
     }
 }

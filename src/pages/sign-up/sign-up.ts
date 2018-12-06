@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from '@angular/forms';
@@ -16,24 +17,45 @@ import {Validators, FormBuilder, FormGroup} from '@angular/forms';
 })
 export class SignUpPage {
 
-  dzulo : FormGroup;
+  student : FormGroup;
+
+  email
+  password
+  summary: boolean;
+
+
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private formBuilder: FormBuilder) {
-    this.dzulo = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      username: ['', Validators.required],
-      gender: ['', Validators.required],
-      dof: ['', Validators.required],
-      studNo: ['', Validators.required],
-      contactNo: ['', Validators.required],
-
+    this.student = this.formBuilder.group({
+      studNum:[0,[Validators.required]],
+      fullname:['',[Validators.required]],
+      lastname:['',[Validators.required]],
+      gender:['',[Validators.required]],
+      dob:['',[Validators.required]],
+      email:['',[Validators.required]],
+      password:['',[Validators.required]]
     });
+
+
+  
+
+
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUpPage');
   }
+  lanadloa(){
+    this.navCtrl.push('LandlordsignupPage');
+ 
+  }
+  my(){
+    this.navCtrl.push('SignUpPage');
 
+  }
+  SignIn(){
+    this.navCtrl.push('FeedPage'); 
+  }
 }

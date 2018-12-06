@@ -1,0 +1,31 @@
+
+<ion-content >
+
+  <div class="about" style="background: url('assets/imgs/about3.svg') no-repeat">
+
+    <ion-slides pager (ionSlideDrag)="slideMoved()" >
+      <ion-slide>
+          <ion-icon id="pic" name="home" [@bounce]='state' (@bounce.done)="animationDone()" ></ion-icon>
+        <p>We give you access to cheap affordable<br> accomodation</p>
+      </ion-slide>
+      <ion-slide [@bounce]='state'>
+          <ion-icon name="people"  [@bounce]='state'></ion-icon>
+        <p>You dont know the area? No problem you will hear <br>what the former tenats had to say about the place you will be residing</p>
+      </ion-slide>
+      <ion-slide [@bounce]='state'>
+        <p>In case you find the accomodation too high for your pocket. Dont worry you can opt to share a room with someone. Yep we got you covered</p>
+      </ion-slide>
+    </ion-slides>
+
+    
+      <ion-row>
+        <ion-col>
+          <button ion-button block outline (click)="logInBtnClicked()" >LogIn</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button block outline (click)="Sign()">Register</button>
+        </ion-col>
+      </ion-row>
+   
+  </div>
+</ion-content>

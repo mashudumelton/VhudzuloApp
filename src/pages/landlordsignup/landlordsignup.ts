@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '../../../node_modules/@angular/forms';
+import { MapPageModule } from './../map/map.module';
+import { IfObservable } from 'rxjs/observable/IfObservable';
 
 /**
  * Generated class for the LandlordsignupPage page.
@@ -8,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '../../../node_modules/@angul
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+declare var firebase;
 
 @IonicPage()
 @Component({
@@ -15,30 +18,59 @@ import { FormGroup, FormBuilder, Validators } from '../../../node_modules/@angul
   templateUrl: 'landlordsignup.html',
 })
 export class LandlordsignupPage {
+  student : FormGroup;
 
-  human : Person;
-  person : FormGroup
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fb : FormBuilder) {
-    this.person = this.fb.group({
-      name: ['',Validators.required],
-      surname :['',Validators.required],
-      username :['',Validators.required],
-       city:['',Validators.required],
-       address:['',Validators.required],
-      gender : ['',Validators.required],
-      contact:['',Validators.required],
-      email:['',Validators.required],
-      password :['',Validators.required],
-      confirmpassword :['',Validators.required],
-    }); 
+  email
+  password
+  summary: boolean;
+
+  transgender
+  female
+  male
+  gender
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder : FormBuilder) {
+    this.student = this.formBuilder.group({
+    
+      fullname:['',[Validators.required]],
+      lastname:['',[Validators.required]],
+      contact:['',[Validators.required]],
+      address:['',[Validators.required]],
+      gender:['',[Validators.required]],
+      dob:['',[Validators.required]],
+      email:['',[Validators.required]],
+      password:['',[Validators.required]]
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LandlordsignupPage');
   }
-  onSubmit({value,valid}:{value:  Person,valid:boolean}){
-    console.log(value);
 
+  forgotpassword(){
+    this.navCtrl.push("ResetPage");
   }
 
+  onSubmit(){
+    firebase.auth().createUserWithEmailAndPassword(this.student.value.email, this.student.value.password).then(user => {
+      this.navCtrl.push("LandlordfeedPage")
+    });
+
+
+    if(this.gender == "male"){
+        this.male = this.student.value.male;
+    }
+        if(this.gender == "female"){
+          this.female = this.student.value.female;  }
+  
+
+  if(this.gender == "transgender"){
+    this.transgender = this.student.value.transgender;}
+
+}
+
+pu(){
+
+  
+
+}
 }

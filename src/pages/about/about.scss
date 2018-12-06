@@ -1,0 +1,61 @@
+page-about {
+    @import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+    font-family:'Raleway';
+
+    .about{
+        height: 100%;
+        color: rgb(36, 23, 23);
+        background-size: 100%;
+
+        .slides{
+            height: 80%;
+            padding: 10px;
+            text-align: center;
+
+            p{
+                font-size: 0.8em;
+            }
+        }
+        
+            .row{
+                bottom: 0;
+                position: absolute;
+                width: 100%;
+                
+            }
+        
+    }
+
+    .button{
+        background: transparent;
+        color: black;
+        border-color: rgb(0, 132, 255);
+        
+    }
+    ion-icon {
+        margin-top: 40%;
+        font-size:7em;
+        color: rgb(51, 128, 172);
+        box-shadow: #C400FF 5px;
+    }
+    
+
+    .swiper-pagination-bullet-active {
+        background:#C400FF;
+    }
+    
+    .swiper-pagination {
+        bottom: 2% !important;
+    }
+    #skip {
+        position:absolute;
+        bottom: 20px;
+        width:100%;
+        background:none !important;
+        text-align:center;
+        cursor:pointer;
+        z-index:5;
+    }
+    
+    
+}

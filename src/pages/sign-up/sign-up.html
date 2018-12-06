@@ -17,105 +17,98 @@
 
 
 
-    <!-- <ion-list>
-
-        <div>
-            <div float-left class="my-checkbox">
-        <ion-item>
-          <ion-label>Student</ion-label>
-          <ion-checkbox [(ngModel)]="student"></ion-checkbox>
-        </ion-item>
-            </div>
-      
-            <div float-right class="my-checkbox">
-        <ion-item>
-          <ion-label>Landlord</ion-label>
-          <ion-checkbox [(ngModel)]="landlord"></ion-checkbox>
-        </ion-item>
-            </div>
-
-            </div>
-      
-      </ion-list> -->
-
-      <!-- <div class="testbox"> -->
+     
      
   
-    <form [formGroup]="dzulo">
 
+ 
 
         <div class="accounttype">
             <input type="radio" value="None" id="radioOne" name="account" checked/>
-            <label for="radioOne" class="radio" chec>Student</label>
+            <label for="radioOne" class="radio" (click)="my()" chec>Student</label>
+
             <input type="radio" value="None" id="radioTwo" name="account" />
-            <label for="radioTwo" class="radio">Landlord</label>
-          </div>
+            <label for="radioTwo" class="radio" (click)="lanadloa()">  Landlord</label>
+          </div> 
+
   
-        
-         <br> <br>
-        <ion-item  >
-            <ion-icon id="icon" name="card" item-start></ion-icon>
-            <ion-label>StudentNumber</ion-label>
-            <ion-input type= "number" formControlName= "studNo">StudentNo</ion-input>
- 
-          </ion-item>
-
-          <br> <br>
-
-        <ion-item  >
-          <ion-icon id="icon" name="person" item-start></ion-icon>
-           <ion-label>FullName</ion-label>
-           <ion-input type= "name" formControlName= "username">FullNames</ion-input>
-
-         </ion-item>
-
-         <br> <br>
+    
+              <form [formGroup]="student" (ngSubmit)="onSubmit()">
+                <ion-item>
+                    <ion-label floating>Student Number</ion-label>
+                    <ion-input  formControlName="studNum" type="number"></ion-input>
+                  </ion-item>
+            
+                  <ion-item *ngIf="student.controls.studNum.invalid && student.controls.studNum.dirty">
+                      <p>Please enter your student number</p>
+                  </ion-item>
+            
+            
+                  <ion-item>
+                      <ion-label floating>Fullname</ion-label>
+                      <ion-input formControlName="fullname"  type="text"></ion-input>
+                    </ion-item>
+            
+                    <ion-item *ngIf="student.controls.fullname.invalid && student.controls.fullname.dirty">
+                    <p>Please enter Fullname</p>
+                      </ion-item>
+            
+            
+                    <ion-item>
+                        <ion-label floating>Lastname</ion-label>
+                        <ion-input formControlName="lastname"  type="text"></ion-input>
+                      </ion-item>
+            
+                      <ion-item *ngIf="student.controls.lastname.invalid && student.controls.lastname.dirty">
+                          <p>Please enter Lastname</p>
+            
+                        </ion-item>
+            
+                        <ion-item>
+                    <ion-label floating>Gender</ion-label>
+                    <ion-select formControlName ="gender" (ionChange)="onWork()">
+                      <ion-option value="female">Female</ion-option>
+                      <ion-option value="male">Male</ion-option>
+                    </ion-select>
+              </ion-item>
+              <ion-item *ngIf="student.controls.gender.invalid && student.controls.gender.dirty" >
+                  <p>Please enter Gender</p>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label floating>Date of birth</ion-label>
+              <ion-input formControlName="dob"  type="text"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="student.controls.dob.invalid && student.controls.dob.dirty" >
+                <p>Please enter date of birth</p>
+            </ion-item>
+            
+            
+            <ion-item>
+              <ion-label floating>Username</ion-label>
+              <ion-input formControlName="email"  type="text"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="student.controls.email.invalid && student.controls.email.dirty" >
+                <p>Please enter username</p>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input formControlName="password"  type="text"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="student.controls.password.invalid && student.controls.password.dirty" >
+                <p>Please enter password</p>
+            </ion-item>
+            
+            <br>
+            <button ion-button block round >Submit</button>
+            </form>
          
-        <ion-item class="dev">
-            <ion-icon id="icon" name="calendar" item-start></ion-icon>
-           <ion-label >DateOfBirth</ion-label>
-           <ion-input type= "dob" formControlName= "dof">DOF</ion-input>
-         </ion-item>
-
-         <br> <br>
-
-        <ion-item class="dev">
-            <ion-icon id="icon" name="transgender" item-start></ion-icon>
-           <ion-label >Gender</ion-label>
-           <ion-input type= "gender" formControlName= "gender">gender</ion-input>
-         </ion-item>
-
-         <br> <br>
-        <ion-item class="dev">
-            <ion-icon id="icon" name="contact" item-start></ion-icon>
-            <ion-label >Contact</ion-label>
-            <ion-input type= "number" formControlName= "contactNo">ContNo</ion-input>
-          </ion-item>
-   
-         <br> <br>
-
-       <ion-item class="dev">
-          <ion-icon id="icon" name="mail" item-start></ion-icon>
-           <ion-label>Email</ion-label>
-           <ion-input type= "email" formControlName= "email">email</ion-input>
-         </ion-item>
-
-         <br> <br>
-
-         <ion-item class="dev">
-            <ion-icon  id="icon" name="unlock" item-start></ion-icon>
-             <ion-label>Password</ion-label>
-             <ion-input type= "number" formControlName= "password"> password</ion-input>
-         </ion-item>
-
-           <br> <br>
-
-          
-
-
-
-         <button ion-button (click)="SignIn()" class="btnSign" >Register</button>
-
-   </form> 
-  <!-- </div> -->
-</ion-content>
+            
+            <br>
+            
+   </ion-content>
+            
+      
+        
+       
