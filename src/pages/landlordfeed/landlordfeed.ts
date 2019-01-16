@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController, LoadingController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { File } from '@ionic-native/file';
+import { Crop } from '@ionic-native/crop';
 /**
  * Generated class for the LandlordfeedPage page.
  *
@@ -16,11 +19,14 @@ declare var firebase;
   templateUrl: 'landlordfeed.html',
 })
 export class LandlordfeedPage {
+  city:string="";
   address : string = "";
   description : string = "";
   price : string = "";
   numberofrooms: string = "";
 
+  numberofsinglerooms:number;
+  numberofdoublerooms:number;
   uid : any;
   imageUri : any = null;
   loading: any;
@@ -28,14 +34,17 @@ export class LandlordfeedPage {
   details : string = null;
 
   lord: FormGroup;
-  constructor(public toastCtrl: ToastController,public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public loadingCtrl: LoadingController,
+  constructor(private crop: Crop,private file: File,private imagePicker: ImagePicker,public toastCtrl: ToastController,public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public loadingCtrl: LoadingController,
     private formBuilder: FormBuilder) {
  
     this.lord = this.formBuilder.group({
+      city :['', [Validators.required]],
       address: ['', [Validators.required]],
       description: ['', [Validators.required]],
       price: ['', [Validators.required]],
       numberofrooms: ['', [Validators.required]],
+      numberofsinglerooms: ['', [Validators.required]],
+      numberofdoublerooms: ['', [Validators.required]],
       });
  
   }
@@ -48,10 +57,13 @@ export class LandlordfeedPage {
     var databaseKey;
       databaseKey = firebase.database().ref('/landlords/').push(
       {
+        city: this.lord.value.city,
         address: this.lord.value.address,
         description: this.lord.value.description,
         price: this.lord.value.price,
         numberofrooms: this.lord.value.numberofrooms,
+        numberofsinglerooms: this.lord.value.numberofsinglerooms,
+        numberofdoublerooms: this.lord.value.numberofdoublerooms,
       }
     ).key;
     console.log("Rooms Available:" + this.lord.value.numberofrooms);
@@ -104,6 +116,62 @@ export class LandlordfeedPage {
     
   }
   
+  openGallery(){
+
+    let options = {maximumImagesCount: 1, outputType : 0};
+    this.imagePicker.getPictures(options).then( results => {
+      for (var i = 0; i < results.length; i++) {
+
+        this.crop.crop(results[i], {quality: 25, targetWidth : 640, targetHeight : 640})
+        .then(
+        newImage => {
+          console.log('new image path is: ' + newImage);
+
+          let path = newImage.substring(0, newImage.lastIndexOf('/')+1);
+          let file = newImage.substring(newImage.lastIndexOf('/') + 1, newImage.lastIndexOf('?'));
+
+          console.log(path);
+          console.log(file);
+
+          this.loading = this.loadingCtrl.create({
+            content: 'Optimizing image. please wait...'
+          });
+        
+          this.loading.present();
+          
+          this.file.readAsDataURL(path, file).then(
+            uri =>{
+              this.imageUri = uri ;
+              this.details =  "img" + Date.now().toString() + ".jpeg";
+
+              if(this.pictures.length <= 5){
+                this.pictures.push({
+                  name :this.details,
+                  uri : this.imageUri
+                });
+                this.loading.dismiss();
+              }else{
+                this.presentToast("You can only add 6 images");
+                this.loading.dismiss();
+              }
+              
+            }
+          ).catch( error =>{
+              console.log(error);
+              
+            }
+          );
+          
+        },
+        error => console.error('Error cropping image', error)
+        );
+      }
+    }, err => { console.log(err);
+     });
+  }
+
+
+
   uploadImage(){
     
     let counter = 0;

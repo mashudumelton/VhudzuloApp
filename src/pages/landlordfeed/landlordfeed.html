@@ -11,6 +11,11 @@
     <form [formGroup]="lord">
 	<ion-list>
 
+      <ion-item class="clear">
+          <ion-label floating>City</ion-label>
+          <ion-input type="city" formControlName="city"></ion-input>
+        </ion-item>
+
 		<ion-item class="clear">
 			<ion-label floating>Address</ion-label>
 			<ion-input type="Address" formControlName="address"></ion-input>
@@ -21,7 +26,7 @@
     </ion-item>
     
 		<ion-item class="clear">
-			<ion-label floating>Price</ion-label>
+			<ion-label floating>Price Per Month</ion-label>
 			<ion-textarea type="Number" formControlName="price"></ion-textarea>
     </ion-item>
     
@@ -31,6 +36,23 @@
       </ion-item>
 	
   </ion-list>
+
+
+<!-- <h>Rooms Available<h> -->
+
+    <ion-item class="clear">
+        <ion-label floating>Number Of Single Rooms</ion-label>
+        <ion-textarea type="Number" formControlName="numberofsinglerooms"></ion-textarea>
+      </ion-item>
+  
+
+  <ion-item class="clear">
+      <ion-label floating>Number Of Double Rooms</ion-label>
+      <ion-textarea type="Number" formControlName="numberofdoublerooms"></ion-textarea>
+    </ion-item>
+
+
+  
   <ion-row>
   <ion-col col-8>
     <!-- <div id="status">
@@ -38,11 +60,17 @@
     </div> -->
   </ion-col>
 
-    <button ion-button full (click)="takePicture()">
+    <button ion-button  block outline  style="background-color: transparent; color:violet"  (click)="takePicture()">
       <ion-icon name="camera"></ion-icon>
     </button>
- 
+     
+<button ion-button  block outline  style="background-color: transparent; color:violet" (click)="openGallery();">
+  <ion-icon name="images"></ion-icon>
+</button>
 </ion-row>
- <button ion-button full (click)="upload()">Upload House</button>
+
+
+
+ <button ion-button  block outline style="background-color: transparent; color:violet" (click)="upload()">Upload House</button>
 </form>
 </ion-content>

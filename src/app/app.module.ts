@@ -11,6 +11,10 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { HomePageModule } from '../pages/home/home.module';
 import { DataModalPageModule } from '../pages/data-modal/data-modal.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Crop } from '@ionic-native/crop';
+import { File } from '@ionic-native/file';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StatusBar,
     SplashScreen,
     Camera,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ImagePicker,
+    Crop,
+    File,
   ]
 })
 export class AppModule {}

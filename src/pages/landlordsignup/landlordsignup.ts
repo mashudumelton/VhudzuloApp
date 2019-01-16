@@ -28,18 +28,23 @@ export class LandlordsignupPage {
   female
   male
   gender
+  race
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController, public menuCtrl: MenuController) {
     this.student = this.formBuilder.group({
 
-      fullname: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
-      contact: ['', [Validators.required]],
+      fullname: ['', [Validators.required,  Validators.maxLength(50),
+        Validators.minLength(1),]],
+      lastname: ['', [Validators.required,  Validators.maxLength(50),
+        Validators.minLength(1),]],
+      contact: ['', [Validators.required, Validators.maxLength(10),Validators.minLength(10),]],
       address: ['', [Validators.required]],
+      race: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       dob: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
+      password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]]
     });
   }
 
@@ -70,6 +75,7 @@ export class LandlordsignupPage {
           fullname: this.student.value.fullname,
           lastname: this.student.value.lastname,
           contact: this.student.value.contact,
+          race: this.student.value.race,
           address: this.student.value.address,
           gender: this.student.value.gender,
           dob: this.student.value.dob,

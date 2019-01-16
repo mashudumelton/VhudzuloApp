@@ -1,6 +1,6 @@
 import { Component,ViewChild, trigger, transition, style, state, animate, keyframes } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
-
+import { AlertController } from 'ionic-angular';
 /**
  * Generated class for the AboutPage page.
  *
@@ -33,9 +33,10 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 })
 export class AboutPage {
 
+  
   @ViewChild(Slides) slides : Slides;
   state: string = 'leftSwipe';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private alertCtrl: AlertController,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -52,10 +53,33 @@ export class AboutPage {
   animationDone() {
     this.state = 'x';
   }
-  logInBtnClicked(){
-    this.navCtrl.push("LogInPage");
-  }
+ 
   Sign(){
     this.navCtrl.push("SignUpPage");
   }
+
+  doConfirm() {
+    let alert = this.alertCtrl.create({
+      title: 'Log In As ?',
+      buttons: [
+        {
+          text: 'Student',
+          handler: () => {
+            this.navCtrl.push("LogInPage");
+        
+          }
+        },
+        {
+          text: 'Landlord',
+          handler: () => {
+            this.navCtrl.push("LandlordloginPage");
+          
+          }
+        }
+      ]
+    });
+
+    alert.present();
+  }
+
 }

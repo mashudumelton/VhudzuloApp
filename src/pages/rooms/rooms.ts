@@ -1,3 +1,4 @@
+import { MapsPage } from './../maps/maps';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -21,5 +22,7 @@ export class RoomsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RoomsPage');
   }
-
+  map(){
+    this.navCtrl.push("MapPage");
+  }
 }

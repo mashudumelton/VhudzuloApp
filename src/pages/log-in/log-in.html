@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>logIn</ion-title>
+    <ion-title style="text-align: center;">Student Login</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,22 +18,20 @@
  
 <form *ngIf="login" [formGroup]="login" (ngLogin)="submit()">
 
-    <ion-item>
-      <!-- <ion-icon name="at" item-start></ion-icon> -->
-      <ion-icon id="icon" name="mail" item-start></ion-icon>
-      <ion-label></ion-label>
-      <ion-input formControlName="email"  placeholder="email"  type="text" [(ngModel)]="email"></ion-input>
-    </ion-item>
+  <ion-item>
+    <ion-label floating>Email/Username</ion-label>
+    <ion-input formControlName="email"  type="email"></ion-input>
+  </ion-item>
     <ion-item *ngIf="login.controls.email.invalid && login.controls.email.dirty">
         <p>Please enter Email</p>
-  
       </ion-item>
   
   
+
+      
   <ion-item>
-      <ion-icon id="icon" name="lock" item-start></ion-icon>
-  <ion-label></ion-label>
-  <ion-input formControlName="password"   placeholder="password"  type="password" [(ngModel)]="password"></ion-input>
+    <ion-label floating>Password</ion-label>
+    <ion-input formControlName="password"  type="text"></ion-input>
   </ion-item>
   <ion-item *ngIf="login.controls.password.invalid && login.controls.password.dirty">
   <p>Please enter Password</p>
@@ -44,7 +42,7 @@
   
   <div padding-horizontal>
     <div class="form-error">{{loginError}}</div>
-    <button ion-button round outline (click)="submit()" [disabled]="login.invalid" >Login</button>
+    <button ion-button outline (click)="submit()" [disabled]="login.invalid" >Login</button>
   
   
     <ion-row>
@@ -53,5 +51,6 @@
   </div>
   </form>
   
-  
+
+
   </ion-content>
