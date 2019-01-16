@@ -1,6 +1,8 @@
+import { landlord } from './../../landlord';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController, LoadingController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 /**
  * Generated class for the LandlordfeedPage page.
  *
@@ -24,15 +26,38 @@ export class LandlordfeedPage {
   loading: any;
   pictures = [];
   details : string = null;
-  constructor(public toastCtrl: ToastController,public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public loadingCtrl: LoadingController) {
+
+  lord: FormGroup;
+  constructor(public toastCtrl: ToastController,public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public loadingCtrl: LoadingController,
+    private formBuilder: FormBuilder) {
  
- 
+    this.lord = this.formBuilder.group({
+      address: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      numberofrooms: ['', [Validators.required]],
+      });
  
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LandlordfeedPage');
   }
+
+  upload(){
+    var databaseKey;
+      databaseKey = firebase.database().ref('/landlords/').push(
+      {
+        address: this.lord.value.address,
+        description: this.lord.value.description,
+        price: this.lord.value.price,
+        numberofrooms: this.lord.value.numberofrooms,
+      }
+    ).key;
+    console.log("Rooms Available:" + this.lord.value.numberofrooms);
+    console.log("Address:" + this.lord.value.address);
+  }
+  
  takePicture(){
        
     let options: CameraOptions = {

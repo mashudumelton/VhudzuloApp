@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, LoadingController, AlertController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '../../../node_modules/@angular/forms';
 import { MapPageModule } from './../map/map.module';
 import { IfObservable } from 'rxjs/observable/IfObservable';
@@ -18,7 +18,7 @@ declare var firebase;
   templateUrl: 'landlordsignup.html',
 })
 export class LandlordsignupPage {
-  student : FormGroup;
+  student: FormGroup;
 
   email
   password
@@ -28,17 +28,18 @@ export class LandlordsignupPage {
   female
   male
   gender
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder : FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,
+    public loadingCtrl: LoadingController, public alertCtrl: AlertController, public menuCtrl: MenuController) {
     this.student = this.formBuilder.group({
-    
-      fullname:['',[Validators.required]],
-      lastname:['',[Validators.required]],
-      contact:['',[Validators.required]],
-      address:['',[Validators.required]],
-      gender:['',[Validators.required]],
-      dob:['',[Validators.required]],
-      email:['',[Validators.required]],
-      password:['',[Validators.required]]
+
+      fullname: ['', [Validators.required]],
+      lastname: ['', [Validators.required]],
+      contact: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      gender: ['', [Validators.required]],
+      dob: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
@@ -46,31 +47,52 @@ export class LandlordsignupPage {
     console.log('ionViewDidLoad LandlordsignupPage');
   }
 
-  forgotpassword(){
+  forgotpassword() {
     this.navCtrl.push("ResetPage");
   }
 
-  onSubmit(){
-    firebase.auth().createUserWithEmailAndPassword(this.student.value.email, this.student.value.password).then(user => {
+  onSubmit() {
+
+    console.log('Inside onSubmit...');
+
+    var databaseKey;
+    var uid;
+    
+    firebase.auth().createUserWithEmailAndPassword(this.student.value.email, this.student.value.password).then(data => {
+      // console.log('Data:' + data.user.uid);
+      console.log("User email:" + data.user.email)
+      console.log('User email = ' + this.student.value.email);
+
+      uid = data.user.uid;
+
+      databaseKey = firebase.database().ref('/rentals/' + (data.user.uid)).set(
+        {
+          fullname: this.student.value.fullname,
+          lastname: this.student.value.lastname,
+          contact: this.student.value.contact,
+          address: this.student.value.address,
+          gender: this.student.value.gender,
+          dob: this.student.value.dob,
+          email: this.student.value.email
+        }
+      ).key;
+      // console.log("Key " + databaseKey)
       this.navCtrl.push("LandlordfeedPage")
     });
 
 
-    if(this.gender == "male"){
-        this.male = this.student.value.male;
+    if (this.gender == "male") {
+      this.male = this.student.value.male;
     }
-        if(this.gender == "female"){
-          this.female = this.student.value.female;  }
-  
+    if (this.gender == "female") {
+      this.female = this.student.value.female;
+    }
 
-  if(this.gender == "transgender"){
-    this.transgender = this.student.value.transgender;}
 
-}
+    if (this.gender == "transgender") {
+      this.transgender = this.student.value.transgender;
+    }
 
-pu(){
+  }
 
-  
-
-}
 }
